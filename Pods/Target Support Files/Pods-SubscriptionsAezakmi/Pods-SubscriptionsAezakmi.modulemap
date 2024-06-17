@@ -1,0 +1,6 @@
+framework module Pods_SubscriptionsAezakmi {
+  umbrella header "Pods-SubscriptionsAezakmi-umbrella.h"
+
+  export *
+  module * { export * }
+}

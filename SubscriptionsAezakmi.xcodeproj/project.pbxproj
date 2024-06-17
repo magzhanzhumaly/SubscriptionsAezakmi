@@ -11,14 +11,24 @@
 		5698582D2C2030ED00620623 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698582C2C2030ED00620623 /* ContentView.swift */; };
 		5698582F2C2030EF00620623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5698582E2C2030EF00620623 /* Assets.xcassets */; };
 		569858322C2030EF00620623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569858312C2030EF00620623 /* Preview Assets.xcassets */; };
+		569858392C20313D00620623 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569858382C20313D00620623 /* IAPManager.swift */; };
+		5698583B2C205D8000620623 /* ContentViewFileOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698583A2C205D8000620623 /* ContentViewFileOld.swift */; };
+		5698583D2C206CC900620623 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698583C2C206CC900620623 /* Store.swift */; };
+		930868278755C1BD38BAFCD8 /* Pods_SubscriptionsAezakmi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417D3D2426F1CB14FA185013 /* Pods_SubscriptionsAezakmi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06FA1563BF218B4EFAC38EE2 /* Pods-SubscriptionsAezakmi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsAezakmi.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsAezakmi/Pods-SubscriptionsAezakmi.release.xcconfig"; sourceTree = "<group>"; };
+		417D3D2426F1CB14FA185013 /* Pods_SubscriptionsAezakmi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionsAezakmi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		569858272C2030ED00620623 /* SubscriptionsAezakmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubscriptionsAezakmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5698582A2C2030ED00620623 /* SubscriptionsAezakmiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsAezakmiApp.swift; sourceTree = "<group>"; };
 		5698582C2C2030ED00620623 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5698582E2C2030EF00620623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		569858312C2030EF00620623 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		569858382C20313D00620623 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		5698583A2C205D8000620623 /* ContentViewFileOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewFileOld.swift; sourceTree = "<group>"; };
+		5698583C2C206CC900620623 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		697CF6D34C75E25595CD0D8B /* Pods-SubscriptionsAezakmi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsAezakmi.debug.xcconfig"; path = "Target Support Files/Pods-SubscriptionsAezakmi/Pods-SubscriptionsAezakmi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930868278755C1BD38BAFCD8 /* Pods_SubscriptionsAezakmi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +48,8 @@
 			children = (
 				569858292C2030ED00620623 /* SubscriptionsAezakmi */,
 				569858282C2030ED00620623 /* Products */,
+				971CC1A2FB368D61544A928D /* Pods */,
+				9ED10F1CEE96A3AE2B5CC612 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +68,9 @@
 				5698582C2C2030ED00620623 /* ContentView.swift */,
 				5698582E2C2030EF00620623 /* Assets.xcassets */,
 				569858302C2030EF00620623 /* Preview Content */,
+				569858382C20313D00620623 /* IAPManager.swift */,
+				5698583A2C205D8000620623 /* ContentViewFileOld.swift */,
+				5698583C2C206CC900620623 /* Store.swift */,
 			);
 			path = SubscriptionsAezakmi;
 			sourceTree = "<group>";
@@ -67,6 +83,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		971CC1A2FB368D61544A928D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				697CF6D34C75E25595CD0D8B /* Pods-SubscriptionsAezakmi.debug.xcconfig */,
+				06FA1563BF218B4EFAC38EE2 /* Pods-SubscriptionsAezakmi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9ED10F1CEE96A3AE2B5CC612 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				417D3D2426F1CB14FA185013 /* Pods_SubscriptionsAezakmi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +107,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 569858352C2030EF00620623 /* Build configuration list for PBXNativeTarget "SubscriptionsAezakmi" */;
 			buildPhases = (
+				A2ECABB25FD479030301AD14 /* [CP] Check Pods Manifest.lock */,
 				569858232C2030ED00620623 /* Sources */,
 				569858242C2030ED00620623 /* Frameworks */,
 				569858252C2030ED00620623 /* Resources */,
@@ -132,11 +166,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A2ECABB25FD479030301AD14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SubscriptionsAezakmi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		569858232C2030ED00620623 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5698583D2C206CC900620623 /* Store.swift in Sources */,
+				5698583B2C205D8000620623 /* ContentViewFileOld.swift in Sources */,
+				569858392C20313D00620623 /* IAPManager.swift in Sources */,
 				5698582D2C2030ED00620623 /* ContentView.swift in Sources */,
 				5698582B2C2030ED00620623 /* SubscriptionsAezakmiApp.swift in Sources */,
 			);
@@ -266,6 +328,7 @@
 		};
 		569858362C2030EF00620623 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 697CF6D34C75E25595CD0D8B /* Pods-SubscriptionsAezakmi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -280,12 +343,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = magzhanzhumaly.SubscriptionsAezakmi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magzhanzhumaly.SubscriptionsAezakmi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -295,6 +359,7 @@
 		};
 		569858372C2030EF00620623 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06FA1563BF218B4EFAC38EE2 /* Pods-SubscriptionsAezakmi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,12 +374,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = magzhanzhumaly.SubscriptionsAezakmi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magzhanzhumaly.SubscriptionsAezakmi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
