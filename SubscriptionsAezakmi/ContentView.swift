@@ -61,6 +61,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     if let product = iapManager.products.first(where: { $0.productId == selectedOption }) {
+                        iapManager.buyProduct(product)
                     }
                 }) {
                     Text(buttonTitle)

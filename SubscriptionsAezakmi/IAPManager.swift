@@ -29,19 +29,17 @@ class IAPManager: ObservableObject {
                 print("No placements or products available")
             }
         }
-        
-        
-        @MainActor func buyProduct(_ product: ApphudProduct) {
-            Apphud.purchase(product) { result in
-                if let subscription = result.subscription, subscription.isActive(){
-                    print("Subscription purchased: \(subscription.productId)")
-                } else if let purchase = result.nonRenewingPurchase, purchase.isActive(){
-                    print("Non-renewing purchase: \(purchase.productId)")
-                } else {
-                    print("Purchase cancelled")
-                }
+    }
+    
+    @MainActor func buyProduct(_ product: ApphudProduct) {
+        Apphud.purchase(product) { result in
+            if let subscription = result.subscription, subscription.isActive(){
+                print("Subscription purchased: \(subscription.productId)")
+            } else if let purchase = result.nonRenewingPurchase, purchase.isActive(){
+                print("Non-renewing purchase: \(purchase.productId)")
+            } else {
+                print("Purchase cancelled")
             }
         }
     }
-    
 }
