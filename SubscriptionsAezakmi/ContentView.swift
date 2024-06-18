@@ -11,18 +11,45 @@ import ApphudSDK
 import Combine
 import WebKit
 
+struct Price {
+    let weeklyPrice: Double
+    let periodPrice: Double
+}
+
+enum ProductID: String {
+    case weekly = "com.magzhanzhumaly.SubscriptionsAezakmi.weekly"
+    case monthly = "com.magzhanzhumaly.SubscriptionsAezakmi.monthly"
+    case yearly = "com.magzhanzhumaly.SubscriptionsAezakmi.yearly"
+
+}
 
 struct ContentView: View {
     @ObservedObject var iapManager = IAPManager.shared
     @State private var selectedOption: String? = nil
     @State private var showPrivacyPolicy = false
     @State private var showTermsOfUse = false
-    @State private var buttonTitle = "Try free & subscribe"
+    @State private var subscriptionButtonTitle = "Try free & subscribe"
+    @State private var subtitle = "Try 3 days free then $4.99/week"
   
-    init() {
-        iapManager.fetchProducts()
-    }
+    let weeklySubscriptionPrice = Price(weeklyPrice: 4.99, periodPrice: 4.99)
+    let monthlySubscriptionPrice = Price(weeklyPrice: 3.99, periodPrice: 15.99)
+    let yearlySubscriptionPrice = Price(weeklyPrice: 0.79, periodPrice: 39.99)
+
     
+    init() {
+        // Call fetchProducts here if needed during initialization
+//        Task {
+////            guard let self = self else { return }
+//            do {
+//                try await self.iapManager.fetchProducts(.paywall)
+//            } catch {
+//                // Handle the error here (e.g., log it, show an alert to the user)
+//                print("Error fetching products: \(error.localizedDescription)")
+//            }
+//        }
+    }
+
+
     var body: some View {
         ZStack {
             Color.white.edgesIgnoringSafeArea(.all)
@@ -33,7 +60,7 @@ struct ContentView: View {
                     .padding(.top)
                     .foregroundStyle(.black)
                 
-                Text("Try 3 days free then $4.99/week")
+                Text(subtitle)
                     .font(.subheadline)
                     .padding(.bottom)
                     .foregroundColor(.black)
@@ -41,21 +68,21 @@ struct ContentView: View {
                 HStack(spacing: 10) {
                     subscriptionOption(title: "POPULAR",
                                        period: "MONTHLY",
-                                       price: "$3.99 per week",
-                                       fullPrice: "$15.99/month",
-                                       productID: "com.magzhanzhumaly.SubscriptionsAezakmi.monthly")
+                                       price: "$\(weeklySubscriptionPrice.weeklyPrice) per week",
+                                       fullPrice: "$\(weeklySubscriptionPrice.periodPrice)/month",
+                                       productID: ProductID.monthly.rawValue)
                     
                     subscriptionOption(title: "3 DAYS FREE TRIAL",
                                        period: "WEEKLY",
-                                       price: "$4.99 per week",
-                                       fullPrice: "$4.99/week",
-                                       productID: "com.magzhanzhumaly.SubscriptionsAezakmi.weekly")
+                                       price: "$\(monthlySubscriptionPrice.weeklyPrice) per week",
+                                       fullPrice: "$\(monthlySubscriptionPrice.periodPrice)/week",
+                                       productID: ProductID.weekly.rawValue)
                     
                     subscriptionOption(title: "BEST DEAL",
                                        period: "YEARLY",
-                                       price: "$0.79 per week",
-                                       fullPrice: "$39.99/year",
-                                       productID: "com.magzhanzhumaly.SubscriptionsAezakmi.yearly")
+                                       price: "$\(yearlySubscriptionPrice.weeklyPrice) per week",
+                                       fullPrice: "$\(yearlySubscriptionPrice.periodPrice)/year",
+                                       productID: ProductID.yearly.rawValue)
                 }
                 .padding()
                 
@@ -64,7 +91,7 @@ struct ContentView: View {
                         iapManager.buyProduct(product)
                     }
                 }) {
-                    Text(buttonTitle)
+                    Text(subscriptionButtonTitle)
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -116,8 +143,13 @@ struct ContentView: View {
             .padding()
         }
         .onAppear {
-            iapManager.fetchProducts()
-
+            Task {
+                do {
+                    try await iapManager.fetchProducts(.paywall)
+                } catch {
+                    print("Error fetching products: \(error.localizedDescription)")
+                }
+            }
         }
         .sheet(isPresented: $showPrivacyPolicy) {
             WebView(url: URL(string: "https://www.termsfeed.com/live/e5fd68c8-2953-4738-a90b-b66f0f1f1c69")!)
@@ -168,7 +200,15 @@ struct ContentView: View {
         )
         .onTapGesture {
             selectedOption = productID
-            buttonTitle = selectedOption == "com.magzhanzhumaly.SubscriptionsAezakmi.weekly" ? "Try free & subscribe" : "Subscribe"
+            subscriptionButtonTitle = selectedOption == "com.magzhanzhumaly.SubscriptionsAezakmi.weekly" ? "Try free & subscribe" : "Subscribe"
+            
+            if selectedOption == "com.magzhanzhumaly.SubscriptionsAezakmi.weekly" {
+                subtitle = "Try 3 days free then $\(weeklySubscriptionPrice.weeklyPrice) per week"
+            } else if selectedOption == "com.magzhanzhumaly.SubscriptionsAezakmi.monthly" {
+                subtitle = "$\(monthlySubscriptionPrice.weeklyPrice) per week"
+            } else { // yearly
+                subtitle = "$\(yearlySubscriptionPrice.weeklyPrice) per week"
+            }
         }
     }
 }
