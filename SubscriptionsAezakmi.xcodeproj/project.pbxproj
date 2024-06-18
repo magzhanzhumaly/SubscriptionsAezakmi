@@ -14,6 +14,7 @@
 		569858392C20313D00620623 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569858382C20313D00620623 /* IAPManager.swift */; };
 		5698583B2C205D8000620623 /* ContentViewFileOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698583A2C205D8000620623 /* ContentViewFileOld.swift */; };
 		5698583D2C206CC900620623 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698583C2C206CC900620623 /* Store.swift */; };
+		569858402C215FAF00620623 /* ApphudSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 5698583F2C215FAF00620623 /* ApphudSDK */; };
 		930868278755C1BD38BAFCD8 /* Pods_SubscriptionsAezakmi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417D3D2426F1CB14FA185013 /* Pods_SubscriptionsAezakmi.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				930868278755C1BD38BAFCD8 /* Pods_SubscriptionsAezakmi.framework in Frameworks */,
+				569858402C215FAF00620623 /* ApphudSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +119,9 @@
 			dependencies = (
 			);
 			name = SubscriptionsAezakmi;
+			packageProductDependencies = (
+				5698583F2C215FAF00620623 /* ApphudSDK */,
+			);
 			productName = SubscriptionsAezakmi;
 			productReference = 569858272C2030ED00620623 /* SubscriptionsAezakmi.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +150,9 @@
 				Base,
 			);
 			mainGroup = 5698581E2C2030ED00620623;
+			packageReferences = (
+				5698583E2C215FAF00620623 /* XCRemoteSwiftPackageReference "ApphudSDK" */,
+			);
 			productRefGroup = 569858282C2030ED00620623 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -410,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5698583E2C215FAF00620623 /* XCRemoteSwiftPackageReference "ApphudSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apphud/ApphudSDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5698583F2C215FAF00620623 /* ApphudSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5698583E2C215FAF00620623 /* XCRemoteSwiftPackageReference "ApphudSDK" */;
+			productName = ApphudSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5698581F2C2030ED00620623 /* Project object */;
 }

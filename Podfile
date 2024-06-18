@@ -7,6 +7,5 @@ target 'SubscriptionsAezakmi' do
 
   # Pods for SubscriptionsAezakmi
 
-#pod 'ApphudSDK'
-
+#  pod 'ApphudSDK'
 end

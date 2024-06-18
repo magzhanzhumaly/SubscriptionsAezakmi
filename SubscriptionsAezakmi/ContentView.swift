@@ -7,11 +7,18 @@
 
 import StoreKit
 import SwiftUI
+import ApphudSDK
+import Combine
+import WebKit
+
 
 struct ContentView: View {
     @ObservedObject var iapManager = IAPManager.shared
     @State private var selectedOption: String? = nil
-    
+    @State private var showPrivacyPolicy = false
+    @State private var showTermsOfUse = false
+    @State private var buttonTitle = "Try free & subscribe"
+  
     init() {
         iapManager.fetchProducts()
     }
@@ -53,11 +60,10 @@ struct ContentView: View {
                 .padding()
                 
                 Button(action: {
-                    if let product = iapManager.products.first(where: { $0.productIdentifier == selectedOption }) {
-                        iapManager.buyProduct(product)
+                    if let product = iapManager.products.first(where: { $0.productId == selectedOption }) {
                     }
                 }) {
-                    Text("Try free & subscribe")
+                    Text(buttonTitle)
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -68,7 +74,7 @@ struct ContentView: View {
                 
                 HStack {
                     Button(action: {
-                        // TODO: добавить terms of use
+                        showTermsOfUse = true
                     }) {
                         Text("Terms of Use")
                             .foregroundStyle(.accent)
@@ -76,17 +82,26 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        // TODO: добавить privacy policy
-                    }) {
-                        Text("Privacy Policy")
-                            .foregroundStyle(.accent)
-                    }
-                    
+                    ZStack {
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    showPrivacyPolicy = true
+                                }) {
+                                    Text("Privacy Policy")
+                                        .foregroundStyle(.accent)
+                                }
+                                Spacer()
+                            }
+                        }
+
                     Spacer()
                     
                     Button(action: {
-                        SKPaymentQueue.default().restoreCompletedTransactions()
+                        Task {
+                            await Apphud.restorePurchases()
+                        }
+
                     }) {
                         Text("Restore")
                             .foregroundStyle(.accent)
@@ -94,25 +109,35 @@ struct ContentView: View {
                 }
                 .padding(.horizontal)
                 .font(.footnote)
+            
             }
             .background(Color.white)
             .padding()
         }
+        .onAppear {
+            iapManager.fetchProducts()
+
+        }
+        .sheet(isPresented: $showPrivacyPolicy) {
+            WebView(url: URL(string: "https://www.termsfeed.com/live/e5fd68c8-2953-4738-a90b-b66f0f1f1c69")!)
+        }
+        .sheet(isPresented: $showTermsOfUse) {
+            WebView(url: URL(string: "https://www.termsfeed.com/live/e5fd68c8-2953-4738-a90b-b66f0f1f1c69")!)
+        }
+
     }
+    
+    
     
     private func subscriptionOption(title: String, period: String, price: String, fullPrice: String, productID: String) -> some View {
         VStack {
             Text(title)
                 .font(.caption)
-//                .padding(.top, 10)
-//                .padding(.bottom, 2)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.accent)
                 .foregroundColor(.white)
                 .frame(height: 45)
                 .multilineTextAlignment(.center)
-
-//            Spacer()
             
             Text(period)
                 .font(.headline)
@@ -142,17 +167,29 @@ struct ContentView: View {
         )
         .onTapGesture {
             selectedOption = productID
-//            if let product = iapManager.products.first(where: { $0.productIdentifier == productID }) {
-//                iapManager.buyProduct(product)
-//            }
+            buttonTitle = selectedOption == "com.magzhanzhumaly.SubscriptionsAezakmi.weekly" ? "Try free & subscribe" : "Subscribe"
         }
     }
 }
 
 extension Color {
-    static let accentLight = Color.accentColor.opacity(0.1)
+    static let accentLight = Color.accentColor.opacity(0.2)
 }
 
 #Preview {
     ContentView()
+}
+
+
+struct WebView: UIViewRepresentable {
+    let url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        let request = URLRequest(url: url)
+        uiView.load(request)
+    }
 }
