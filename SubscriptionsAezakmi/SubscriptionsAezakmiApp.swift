@@ -15,7 +15,7 @@ struct SubscriptionsAezakmiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PaywallView()
 //                .onAppear {
 //                    IAPManager.shared.fetchProducts()
 //                }

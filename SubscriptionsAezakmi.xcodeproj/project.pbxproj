@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		563A25882C23A202006DC063 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A25872C23A202006DC063 /* PaywallView.swift */; };
 		5698582B2C2030ED00620623 /* SubscriptionsAezakmiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698582A2C2030ED00620623 /* SubscriptionsAezakmiApp.swift */; };
 		5698582D2C2030ED00620623 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698582C2C2030ED00620623 /* ContentView.swift */; };
 		5698582F2C2030EF00620623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5698582E2C2030EF00620623 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		06FA1563BF218B4EFAC38EE2 /* Pods-SubscriptionsAezakmi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsAezakmi.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionsAezakmi/Pods-SubscriptionsAezakmi.release.xcconfig"; sourceTree = "<group>"; };
 		417D3D2426F1CB14FA185013 /* Pods_SubscriptionsAezakmi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionsAezakmi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		563A25872C23A202006DC063 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		569858272C2030ED00620623 /* SubscriptionsAezakmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubscriptionsAezakmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5698582A2C2030ED00620623 /* SubscriptionsAezakmiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsAezakmiApp.swift; sourceTree = "<group>"; };
 		5698582C2C2030ED00620623 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,6 +31,7 @@
 		569858382C20313D00620623 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		5698583A2C205D8000620623 /* ContentViewFileOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewFileOld.swift; sourceTree = "<group>"; };
 		5698583C2C206CC900620623 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		56D5B9DF2C22B1580009E8F1 /* Product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Product.storekit; sourceTree = "<group>"; };
 		697CF6D34C75E25595CD0D8B /* Pods-SubscriptionsAezakmi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionsAezakmi.debug.xcconfig"; path = "Target Support Files/Pods-SubscriptionsAezakmi/Pods-SubscriptionsAezakmi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +76,8 @@
 				569858382C20313D00620623 /* IAPManager.swift */,
 				5698583A2C205D8000620623 /* ContentViewFileOld.swift */,
 				5698583C2C206CC900620623 /* Store.swift */,
+				56D5B9DF2C22B1580009E8F1 /* Product.storekit */,
+				563A25872C23A202006DC063 /* PaywallView.swift */,
 			);
 			path = SubscriptionsAezakmi;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				5698583D2C206CC900620623 /* Store.swift in Sources */,
 				5698583B2C205D8000620623 /* ContentViewFileOld.swift in Sources */,
 				569858392C20313D00620623 /* IAPManager.swift in Sources */,
+				563A25882C23A202006DC063 /* PaywallView.swift in Sources */,
 				5698582D2C2030ED00620623 /* ContentView.swift in Sources */,
 				5698582B2C2030ED00620623 /* SubscriptionsAezakmiApp.swift in Sources */,
 			);

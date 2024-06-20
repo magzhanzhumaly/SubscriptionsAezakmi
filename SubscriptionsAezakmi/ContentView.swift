@@ -21,6 +21,9 @@ enum ProductID: String {
     case monthly = "com.magzhanzhumaly.SubscriptionsAezakmi.monthly"
     case yearly = "com.magzhanzhumaly.SubscriptionsAezakmi.yearly"
     
+    static var allCases: [ProductID] {
+        return [.weekly, .monthly, .yearly]
+    }
 }
 
 struct ContentView: View {
@@ -151,6 +154,7 @@ struct ContentView: View {
             Task {
                 do {
                     try await iapManager.fetchProducts(.paywall)
+                    print(iapManager.products)
                 } catch {
                     print("Error fetching products: \(error.localizedDescription)")
                 }
@@ -162,8 +166,9 @@ struct ContentView: View {
         .sheet(isPresented: $showTermsOfUse) {
             WebView(url: URL(string: "https://www.termsfeed.com/live/e5fd68c8-2953-4738-a90b-b66f0f1f1c69")!)
         }
-        
     }
+    
+    
     
     
     
